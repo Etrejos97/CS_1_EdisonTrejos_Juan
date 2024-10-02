@@ -20,20 +20,21 @@ public class Menu {
             
             switch (option) {
                 case "1":
-                    if (miClub.isFull()) {
-                        JOptionPane.showMessageDialog(null, "Se ha alcanzado el límite máximo de socios.", "Aviso", JOptionPane.WARNING_MESSAGE);
-                    } else {
-                        miClub.addMember();
-                        menu1();
-                    }
+                    
+                    miClub.addMember();
+                    menu1();
+                    
                     break;
                 case "2":
                     id = JOptionPane.showInputDialog("Ingrese su cedula: ");
                     if(!miClub.memberExists(id)){
-                        JOptionPane.showMessageDialog(null, "El socio no existe. Por favor, verifique la cédula.", "Error", JOptionPane.ERROR_MESSAGE);;
+                        JOptionPane.showMessageDialog(null, "El socio no existe. Por favor, verifique la cédula.", 
+                                                "Error", JOptionPane.ERROR_MESSAGE);
+                        menu1();
                     }else{  
                         menu2(id);
                     }
+                    break;
                 default:
                     JOptionPane.showMessageDialog(null, "Opcion no valida.", "Aviso", JOptionPane.WARNING_MESSAGE);
                     menu1();
@@ -63,11 +64,13 @@ public class Menu {
                         id = JOptionPane.showInputDialog("Ingrese la cedula del socio que desea buscar: ");
                         Member member = miClub.getMember(id);
                         if(!miClub.memberExists(id)){
-                            JOptionPane.showMessageDialog(null, "El socio no existe.", "Aviso", JOptionPane.WARNING_MESSAGE);
+                            JOptionPane.showMessageDialog(null, "El socio no existe.", "Aviso", 
+                                                            JOptionPane.WARNING_MESSAGE);
                             menu2(id);
                             
                         }else {
-                            JOptionPane.showMessageDialog(null, "Socio encontrado: " + member, "Resultado de la búsqueda", JOptionPane.INFORMATION_MESSAGE);
+                            JOptionPane.showMessageDialog(null, "Socio encontrado: " + member, "Resultado de la búsqueda", 
+                                                        JOptionPane.INFORMATION_MESSAGE);
                             menu2(id);
                         }
                         break;

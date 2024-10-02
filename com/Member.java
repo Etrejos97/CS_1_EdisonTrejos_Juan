@@ -1,11 +1,11 @@
 package com;
 
-import java.util.HashMap;
+// import java.util.HashMap;
 
 public class Member extends ClubMember {
     private String suscriptionType;
     private double availableFounds;
-    private HashMap<String, AuthorizedPersons> authorizedPerson = new HashMap<>();
+    // private HashMap<String, AuthorizedPersons> authorizedPerson = new HashMap<>();
     
     public Member(String name, String id, String suscriptionType) {
         super(name,id);
